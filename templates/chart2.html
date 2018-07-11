@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>-->
+    <script src="{{ url_for('static', filename='Chart.min.js') }}"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+
+</head>
+
+<body>
+  <center>
+    <h1>{{ title }}</h1>
+  </center>
+  <center>
+    <!--<canvas id="chart" width="600" height="400"></canvas>-->
+    <script>
+    var dataFirst = {
+  label: "Car A - Speed (mph)",
+  data: [0, 59, 75, 20, 20, 55, 40],
+  lineTension: 0.3,
+  // Set More Options
+};
+
+var dataSecond = {
+  label: "Car B - Speed (mph)",
+  data: [20, 15, 60, 60, 65, 30, 70],
+  // Set More Options
+};
+
+var speedData = {
+  labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
+  datasets: [dataFirst, dataSecond]
+};
+
+
+var lineChart = new Chart(speedCanvas, {
+  type: 'line',
+  data: speedData
+});
+    </script>
+  </center>
+</body>
+</html>
