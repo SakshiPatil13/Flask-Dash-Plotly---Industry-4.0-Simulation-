@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8" />
+  <title>Chart.js Example</title>
+  <!-- import plugin script -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script src='static/Chart.min.js'></script>
+</head><body>
+<h1>Flask Chart.js</h1><!-- bar chart canvas element --><canvas id="chart" width="600" height="400"></canvas>
+<script>
+   // bar chart data
+var timeFormat = 'hh:mm:ss';
+
+function newDateString(hours, minutes, seconds) {
+  return moment().hour(hours).minute(minutes).second(seconds).format(timeFormat);
+}
+
+   // get bar chart canvas
+  var chartData = {
+  labels : [{% for item in labels %}
+             newDateString( {{item.hour}}, {{item.minute}}, {{item.second}} ),
+            {% endfor %}]
+          }
+
+</script>
+</body></html>

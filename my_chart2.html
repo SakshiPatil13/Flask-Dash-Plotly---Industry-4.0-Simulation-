@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Chart</title>
+ <script src="{{ url_for('static', filename='folder/Chart.min.js') }}"></script>
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+
+
+</head>
+
+<body>
+
+
+
+
+<script>
+(function () {
+var ctx = document.getElementById("myChart").getContext("2d");
+var data = {
+    labels: ["0", "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "95", "100", "105", "110", "115", "120", "125"],
+    datasets: [{
+        data: [20, 25, 27, 30, 10, 15, 17, 20, 35, 27, 25, 29, 20, 17, 23, 27, 22, 30, 35, 30, 33, 29, 31, 25, 20],
+        lineTension: 0,
+        fill: "start",
+        borderColor: '#0077f3',
+        backgroundColor: 'rgba(0, 119, 243, .1)',
+        pointBorderColor: '#0077f3',
+        pointBackgroundColor: '#0077f3',
+        pointBorderWidth: 10,
+        pointStyle: 'rect'
+    }]
+};
+
+var options = {
+    responsive: true,
+    legend: {
+        display: false
+    },
+    scales:
+    {
+        xAxes: [{
+            gridLines: {
+                display: false,
+                drawBorder: false
+            },
+            ticks: {
+                display: false
+            }
+        }],
+        yAxes: [{
+            gridLines: {
+                display: false,
+                drawBorder: false
+            },
+            ticks: {
+                display: false
+            }
+        }]
+    }
+}
+
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: options
+});
+myChart.canvas.style.height = "400px";
+//myChart.canvas.style.width = "100%";
+</script>
+</body>
+</html>
